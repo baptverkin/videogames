@@ -30,14 +30,14 @@ app.get("/", (httpRequest, response) => {
 //   const platform =
 // });
 
-type GameInfo = {
-  id: string;
-  name: string;
-  slug: string;
-  category: string;
-  platforms: [];
-  cover: [];
-};
+// type GameInfo = {
+//   id: string;
+//   name: string;
+//   slug: string;
+//   category: string;
+//   platforms: [];
+//   cover: [];
+// };
 
 type Logo = {
   url: string;
@@ -54,11 +54,11 @@ type PlatformInfo = {
   logo: Logo;
 };
 
-type platformProfile = {
-  id: string;
-  name: string;
-};
-type Myplatform = platformProfile[];
+// type platformProfile = {
+//   id: string;
+//   name: string;
+// };
+// type Myplatform = platformProfile[];
 
 app.get("/platform/:id", (httpRequest, response) => {
   const id = httpRequest.params.id;

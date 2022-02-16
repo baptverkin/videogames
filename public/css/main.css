@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  background: rgb(222, 222, 223);
+  background: rgb(14, 45, 80);
   text-align: justify;
   color:rgb(85, 74, 74);
   height: 5em;
@@ -21,9 +21,9 @@ a, a:hover, a:focus, a:active {
 }
 
 body{
-  background-color: rgb(6, 25, 41);
+  background-color: rgb(204, 207, 209);
   font-family: "Gill Sans", sans-serif;
-  color: rgb(223, 221, 205);
+  color: rgb(14, 45, 80);
 }
 
 .footer{
@@ -71,4 +71,9 @@ body{
 .screenshots{
   width: 250px;
   height: 180px;
+}
+
+.backArrow{
+  width: 75px;
+  height: 60px;
 }
