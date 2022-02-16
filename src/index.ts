@@ -39,6 +39,21 @@ type GameInfo = {
   cover: [];
 };
 
+type Logo = {
+  url: string;
+  width: number;
+  height: number;
+};
+
+type PlatformInfo = {
+  id: string;
+  name: string;
+  slug: string;
+  category: string;
+  summary: string;
+  logo: Logo;
+};
+
 type PlatformGames = GameInfo[];
 
 type platformProfile = {
@@ -48,22 +63,31 @@ type platformProfile = {
 type Myplatform = platformProfile[];
 
 app.get("/platform/:id", (httpRequest, response) => {
-  // request();
-
   const id = httpRequest.params.id;
   console.log(id);
-  request(`https://videogame-api.fly.dev/games/platforms/${id}`, (error, body) => {
+
+  request("http://videogame-api.fly.dev/platforms", (error, body) => {
     if (error) {
       throw error;
     }
-    const games = JSON.parse(body);
-    console.log(games);
-    const platformArr: Myplatform = games.games.find((element: GameInfo) => {
-      element.platforms;
+    const platforms = JSON.parse(body).platforms;
+    const myPlatform = platforms.find((element: PlatformInfo) => {
+      return element.id === id;
     });
-    console.log("===test platform", platformArr);
-    console.log("===test", games.games[0].platforms);
-    response.render("games", { games });
+    console.log("ligne56", myPlatform);
+
+    request(`https://videogame-api.fly.dev/games/platforms/${id}`, (error, body) => {
+      if (error) {
+        throw error;
+      }
+      const games = JSON.parse(body);
+      console.log(games);
+      const platformArr: Myplatform = games.games.find((element: GameInfo) => {
+        element.platforms;
+      });
+      console.log("===test platform", platformArr);
+      response.render("games", { games, myPlatform });
+    });
   });
 });
 
