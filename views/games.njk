@@ -1,0 +1,12 @@
+{% extends "layout.njk" %}
+
+{%block content%}
+<h1>Select your favorite game for "platform_name"</h1>
+
+<ul>
+  {%for item in games%}
+    <li>{{item.name}}</li>
+  {%endfor%}
+</ul>
+
+{% endblock %}

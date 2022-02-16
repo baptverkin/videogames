@@ -1,0 +1,18 @@
+{% extends "layout.njk" %}
+
+{%block content%}
+<h1>Welcome to the ultimate video-game website</h1>
+<h2> Select your favorite gaming platform</h2>
+
+<ul>
+  {%for item in platform %}
+    <li>
+      <a class="homelist" href=/platform/{{item.id}}>
+      <img class="logo" src="{{item.logo.url}}" alt = "Logo video games" >
+       {{item.name}}
+      </a>
+    </li>
+    {%endfor%}
+</ul>
+
+{% endblock %}
