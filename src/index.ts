@@ -19,7 +19,7 @@ app.get("/", (httpRequest, response) => {
       throw error;
     }
     const platform = JSON.parse(body).platforms;
-    console.log(platform[0].logo);
+    console.log(platform[1].logo);
     response.render("home", { platform });
   });
 });
@@ -33,6 +33,7 @@ app.get("/platform/:id", (httpRequest, response) => {
       throw error;
     }
     const games = JSON.parse(body).games;
+    console.log(games);
     response.render("games", { games });
   });
 });

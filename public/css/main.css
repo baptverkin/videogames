@@ -49,7 +49,16 @@ body{
 
 }
 
+.overallLists{
+  list-style: none;
+
+}
+
 .logo{
   width: 20px;
   height: 18px;
+}
+
+.myLists{
+  height: 26px
 }

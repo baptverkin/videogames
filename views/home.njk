@@ -4,12 +4,16 @@
 <h1>Welcome to the ultimate video-game website</h1>
 <h2> Select your favorite gaming platform</h2>
 
-<ul>
+<ul class="overallLists">
   {%for item in platform %}
-    <li>
+    <li class="myLists">
       <a class="homelist" href=/platform/{{item.id}}>
-      <img class="logo" src="{{item.logo.url}}" alt = "Logo video games" >
-       {{item.name}}
+      {% if item.logo%}
+        <img class="logo" src="{{item.logo.url}}" alt = "Logo video games" >
+      {%else%}
+        <img class="logo" src="/images/No_Cover.png" alt = "Logo video games undefined" >
+      {%endif%}
+      {{item.name}}
       </a>
     </li>
     {%endfor%}
