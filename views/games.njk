@@ -5,7 +5,11 @@
 
 <ul class="overallLists">
   {%for item in games.games%}
-    <li class="myLists" href=/plateform/:platform_id/games/games_id>{{item.name}}</li>
+    <li class="myLists">
+      <a class="homelist" href=/plateform/{{myPlatform.id}}/games/{{item.id}}>
+        {{item.name}}
+      </a>
+    </li>
   {%endfor%}
 </ul>
 

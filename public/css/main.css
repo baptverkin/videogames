@@ -62,3 +62,13 @@ body{
 .myLists{
   height: 26px
 }
+
+.coverGame{
+  width: 100px;
+  height: 90px;
+}
+
+.screenshots{
+  width: 250px;
+  height: 180px;
+}
