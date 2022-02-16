@@ -4,8 +4,8 @@
 <h1>Select your favorite game for "platform_name"</h1>
 
 <ul class="overallLists">
-  {%for item in games%}
-    <li class="myLists" >{{item.name}}</li>
+  {%for item in games.games%}
+    <li class="myLists" href=/plateform/:platform_id/games/games_id>{{item.name}}</li>
   {%endfor%}
 </ul>
 
