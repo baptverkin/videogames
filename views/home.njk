@@ -5,6 +5,7 @@
 <h2> Select your favorite gaming platform</h2>
 
 <ul class="overallLists">
+
   {%for item in platform %}
     <li class="myLists">
       <a class="homelist" href=/platform/{{item.id}}>
@@ -18,5 +19,18 @@
     </li>
     {%endfor%}
 </ul>
+
+<div class="pagination">
+  <p>
+  {%if deffensivePageNumber > 1%}
+    <a href=/?page={{deffensivePageNumber -1}} ><img class="backArrow" src="/images/backward_arrow.png" alt = "Back Arrow"></a>
+    <a href=/?page={{deffensivePageNumber +1}} ><img class="backArrow" src="/images/forward_arrow.png" alt = "Forward Arrow"></a>
+  {%else%}
+    <a href=/?page={{pageNumber-1}} ><img class="backArrow" src="/images/backward_arrow.png" alt = "Back Arrow"></a>
+    <a href=/?page={{pageNumber+1}} ><img class="backArrow" src="/images/forward_arrow.png" alt = "Forward Arrow"></a>
+  {%endif%}
+  </p>
+</div>
+
 
 {% endblock %}

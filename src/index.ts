@@ -13,16 +13,47 @@ app.set("view engine", "njk");
 
 app.use(express.static("public"));
 
-app.get("/", (httpRequest, response) => {
-  request("http://videogame-api.fly.dev/platforms", (error, body) => {
-    if (error) {
-      throw error;
-    }
-    const platform = JSON.parse(body).platforms;
-    // console.log(platform[1].logo);
-    response.render("home", { platform });
-  });
+app.get("/", (req, response) => {
+  const pageNumber = 1;
+  const pageNumberQuery = req.query.page;
+  console.log("==ligne 19", typeof pageNumberQuery);
+
+  if (pageNumberQuery) {
+    console.log("===ligne 22===", pageNumberQuery);
+    const newPageNumber = typeof pageNumberQuery === "string" ? parseInt(pageNumberQuery) : 1;
+    console.log("==ligne 24", typeof newPageNumber);
+    const deffensivePageNumber = typeof newPageNumber === "number" ? newPageNumber : 1;
+
+    request(`http://videogame-api.fly.dev/platforms?page=${deffensivePageNumber}`, (error, body) => {
+      if (error) {
+        throw error;
+      }
+      const platform = JSON.parse(body).platforms;
+      response.render("home", { platform, pageNumber, deffensivePageNumber });
+    });
+  } else {
+    request("http://videogame-api.fly.dev/platforms", (error, body) => {
+      if (error) {
+        throw error;
+      }
+      const platform = JSON.parse(body).platforms;
+      response.render("home", { platform, pageNumber });
+    });
+  }
 });
+
+// app.get("/platform?page=page_number", (httpRequest, response) => {
+//   const pageNumber = httpRequest.query.page;
+//   console.log(pageNumber);
+//   request(`http://videogame-api.fly.dev/platforms?page=${pageNumber}`, (error, body) => {
+//     if (error) {
+//       throw error;
+//     }
+//     const platform = JSON.parse(body).platforms;
+//     // console.log(platform[1].logo);
+//     response.render("home", { platform });
+//   });
+// });
 
 // app.get("/platform/:slug", (httpRequest, response) => {
 //   request
