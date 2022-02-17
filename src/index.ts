@@ -42,25 +42,6 @@ app.get("/", (req, response) => {
   }
 });
 
-// app.get("/platform?page=page_number", (httpRequest, response) => {
-//   const pageNumber = httpRequest.query.page;
-//   console.log(pageNumber);
-//   request(`http://videogame-api.fly.dev/platforms?page=${pageNumber}`, (error, body) => {
-//     if (error) {
-//       throw error;
-//     }
-//     const platform = JSON.parse(body).platforms;
-//     // console.log(platform[1].logo);
-//     response.render("home", { platform });
-//   });
-// });
-
-// app.get("/platform/:slug", (httpRequest, response) => {
-//   request
-//   const slug = httpRequest.params.slug;
-//   const platform =
-// });
-
 // type GameInfo = {
 //   id: string;
 //   name: string;
