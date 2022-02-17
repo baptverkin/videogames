@@ -6,6 +6,22 @@
 
 <ul class="overallLists">
 
+{%if deffensivePageNumber > 1%}
+
+  {%for item in platform %}
+    <li class="myLists">
+      <a class="homelist" href=/platform/{{item.id}}?page={{deffensivePageNumber}}>
+      {% if item.logo%}
+        <img class="logo" src="{{item.logo.url}}" alt = "Logo video games" >
+      {%else%}
+        <img class="logo" src="/images/No_Cover.png" alt = "Logo video games undefined" >
+      {%endif%}
+      {{item.name}}
+      </a>
+    </li>
+  {%endfor%}
+
+{%else%}
   {%for item in platform %}
     <li class="myLists">
       <a class="homelist" href=/platform/{{item.id}}>
@@ -17,7 +33,9 @@
       {{item.name}}
       </a>
     </li>
-    {%endfor%}
+  {%endfor%}
+
+{%endif%}
 </ul>
 
 <div class="pagination">
