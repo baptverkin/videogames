@@ -11,6 +11,12 @@
   align-items: center;
 }
 
+.header_right{
+  display: flex;
+  align-items: center;
+  color: rgb(204, 207, 209);
+}
+
 a, a:hover, a:focus, a:active {
   text-decoration: none;
   color: inherit;

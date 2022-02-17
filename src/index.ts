@@ -22,7 +22,7 @@ app.get("/", (req, response) => {
     console.log("===ligne 22===", pageNumberQuery);
     const newPageNumber = typeof pageNumberQuery === "string" ? parseInt(pageNumberQuery) : 1;
     console.log("==ligne 24", typeof newPageNumber);
-    const deffensivePageNumber = typeof newPageNumber === "number" || newPageNumber < 1 ? newPageNumber : 1;
+    const deffensivePageNumber = typeof newPageNumber === "number" ? newPageNumber : 2;
 
     request(`http://videogame-api.fly.dev/platforms?page=${deffensivePageNumber}`, (error, body) => {
       if (error) {
@@ -103,7 +103,7 @@ app.get("/platform/:id", (req, response) => {
     console.log("===ligne 103===", pageNumberQuery);
     const newPageNumber = typeof pageNumberQuery === "string" ? parseInt(pageNumberQuery) : 1;
     console.log("==ligne 105", typeof newPageNumber);
-    const deffensivePageNumber = typeof newPageNumber === "number" || newPageNumber < 1 ? newPageNumber : 1;
+    const deffensivePageNumber = typeof newPageNumber === "number" || newPageNumber < 1 ? newPageNumber : 2;
 
     request(`http://videogame-api.fly.dev/platforms?page=${deffensivePageNumber}`, (error, body) => {
       if (error) {
@@ -156,6 +156,17 @@ app.get("/plateform/:platform_id/games/:game_id", (httprequest, response) => {
     const gameInfo = JSON.parse(body);
     console.log(gameInfo);
     response.render("gameInfo", { gameInfo });
+  });
+});
+
+app.get("/games", (req, response) => {
+  request("http://videogame-api.fly.dev/games", (error, body) => {
+    if (error) {
+      throw error;
+    }
+    const allGames = JSON.parse(body).games;
+    console.log(allGames);
+    response.render("allGames", { allGames });
   });
 });
 
