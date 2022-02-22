@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  background: rgb(14, 45, 80);
+  background: #0e2d50;
   text-align: justify;
   color:rgb(85, 74, 74);
   height: 5em;
@@ -14,20 +14,33 @@
 .header_right{
   display: flex;
   align-items: center;
-  color: rgb(204, 207, 209);
+  color: #cccfd1;
+}
+.title1 {
+  padding-top: 10px;
+  padding-left: 20px;
+  margin: 0px;
+
+}
+.title2 {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  margin: 0px;
+
 }
 
-a, a:hover, a:focus, a:active {
+/* a, a:hover, a:focus, a:active {
   text-decoration: none;
   color: inherit;
   padding-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 20px;
-}
+} */
 
 body{
-  background-color: rgb(204, 207, 209);
+  background-color: rgb(255, 255, 255);
   font-family: "Gill Sans", sans-serif;
   color: rgb(14, 45, 80);
 }

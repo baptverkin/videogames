@@ -1,9 +1,56 @@
 {% extends "layout.njk" %}
 
 {%block content%}
-<h1>Welcome to the ultimate video-game website</h1>
-<h2> Select your favorite gaming platform</h2>
+<h1 class="title1">Welcome to the ultimate video-game website</h1>
+<h2 class="title2"> Select your favorite gaming platform</h2>
 
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {# <div class="col"> #}
+
+      {%if deffensivePageNumber > 1%}
+        {%for item in platform %}
+        <div class="card mb-3" style="width: 10rem;">
+        {% if item.logo%}
+          <img class="card-img-top" src="{{item.logo.url}}" alt = "Logo video games">
+          {%else%}
+          <img class="card-img-top" src="/images/No_Cover.png" alt = "Logo video games undefined">
+        {%endif%}
+          <div class="card-body">
+            <h5 class="card-title text-center">{{item.name}}</h5>
+            </div>
+            <div class="card-footer bg-white">
+            <a href=/platform/{{item.id}}?page={{deffensivePageNumber}} class="btn btn-primary">See games</a>
+          </div>
+        </div>
+        {%endfor%}
+
+        {%else%}
+
+        {%for item in platform %}
+        <div class="card mb-3" style="width: 10rem;">
+        {% if item.logo%}
+          <img class="card-img-top" src="{{item.logo.url}}" alt = "Logo video games">
+          {%else%}
+          <img class="card-img-top" src="/images/No_Cover.png" alt = "Logo video games undefined">
+        {%endif%}
+          <div class="card-body">
+            <h5 class="card-title text-center">{{item.name}}</h5>
+            </div>
+            <div class="card-footer bg-white">
+            <a href=/platform/{{item.id}} class="btn btn-primary">See games</a>
+          </div>
+        </div>
+        {%endfor%}
+
+
+        {%endif%}
+
+    {# </div> #}
+</div>
+
+{#
 <ul class="overallLists">
 
 {%if deffensivePageNumber > 1%}
@@ -36,8 +83,8 @@
   {%endfor%}
 
 {%endif%}
-</ul>
-
+</ul> #}
+{#
 <div class="pagination">
   <p>
   {%if deffensivePageNumber > 1%}
@@ -48,7 +95,42 @@
     <a href=/?page={{pageNumber+1}} ><img class="backArrow" src="/images/forward_arrow.png" alt = "Forward Arrow"></a>
   {%endif%}
   </p>
-</div>
+</div> #}
+
+<nav aria-label="Page navigation example">
+  {%if deffensivePageNumber > 1%}
+  <ul class="pagination justify-content-center">
+    <li class="page-item"><a class="page-link" href=/?page={{deffensivePageNumber -1}}>Previous</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=1>1</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=2>2</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=3>3</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=4>4</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=5>5</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=6>6</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=7>7</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=8>8</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=9>9</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=10>10</a></li>
+    <li class="page-item"><a class="page-link" href=/?page={{deffensivePageNumber +1}}>Next</a></li>
+  </ul>
+  {%else%}
+    <ul class="pagination justify-content-center">
+    <li class="page-item"><a class="page-link" href=/?page={{PageNumber -1}}>Previous</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=1>1</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=2>2</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=3>3</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=4>4</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=5>5</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=6>6</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=7>7</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=8>8</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=9>9</a></li>
+    <li class="page-item"><a class="page-link" href=/?page=10>10</a></li>
+    <li class="page-item"><a class="page-link" href=/?page={{PageNumber +1}}>Next</a></li>
+  </ul>
+  {%endif%}
+
+</nav>
 
 
 {% endblock %}
